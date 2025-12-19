@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const auth = require('../Middleware/auth');
+
 
 const CourseSchema = new mongoose.Schema({
     title:{
@@ -15,20 +17,20 @@ const CourseSchema = new mongoose.Schema({
 const CourseModel = mongoose.model('courses', CourseSchema);
 
 
-const course = [
-    {
-        id: 1,
-        title: "data structures",
-    },
-    {
-        id: 2,
-        title: "operating systems",
-    },
-    {
-        id: 3,
-        title: "database management",
-    }
-];
+// const course = [
+//     {
+//         id: 1,
+//         title: "data structures",
+//     },
+//     {
+//         id: 2,
+//         title: "operating systems",
+//     },
+//     {
+//         id: 3,
+//         title: "database management",
+//     }
+// ];
 
 router.get('/courses', async (req, res) => {
     try {
